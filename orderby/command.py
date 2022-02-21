@@ -13,7 +13,7 @@ class OrderByCommand(BaseCommand):
     def transform(self, df: pd.DataFrame) -> pd.DataFrame:
         asc = self.get_arg('asc').value != 0
 
-        for column in self.get_arg('columns'):
+        for column in self.get_arg('columns', all=True):
             df.sort_values(column.value, axis=1, ascending=asc, inplace=True)
 
         return df
