@@ -1,12 +1,13 @@
-from pp_exec_env.base_command import BaseCommand, Syntax, Rule, pd
+import pandas as pd
+from pp_exec_env.base_command import BaseCommand, Syntax
+from otlang.sdk.syntax import Positional, Keyword, OTLType
 
 
 class OrderByCommand(BaseCommand):
     syntax = Syntax(
         [
-            Rule(name="columns", type="arg", input_types=['string', 'term'], inf=True),  # must_be_a_field=True
-            Rule(name="asc", type="kwarg", key="ascending", input_types=['integer'], required=False)
-
+            Positional(name="columns", input_types=OTLType.TEXT, inf=True),
+            Keyword(name="asc", key="ascending", otl_type=OTLType.INTEGER, required=False)
         ],
         use_timewindow=False)
 
