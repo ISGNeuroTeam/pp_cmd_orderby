@@ -6,7 +6,7 @@ from otlang.sdk.syntax import Positional, Keyword, OTLType
 class OrderByCommand(BaseCommand):
     syntax = Syntax(
         [
-            Positional(name="columns", input_types=OTLType.TEXT, inf=True),
+            Positional(name="columns", otl_type=OTLType.TEXT, inf=True),
             Keyword(name="asc", key="ascending", otl_type=OTLType.INTEGER, required=False)
         ],
         use_timewindow=False)
