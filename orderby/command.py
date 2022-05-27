@@ -8,8 +8,8 @@ class OrderByCommand(BaseCommand):
         [
             Positional(name="columns", otl_type=OTLType.TEXT, inf=True),
             Keyword(name="asc", key="ascending", otl_type=OTLType.INTEGER, required=False)
-        ],
-        use_timewindow=False)
+        ]
+    )
 
     def transform(self, df: pd.DataFrame) -> pd.DataFrame:
         asc = self.get_arg('asc').value != 0
